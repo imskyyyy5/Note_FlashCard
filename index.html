@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width",initial-scale=1.0">
+        <title>NoteWise AI - Smart Revision</title>
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+    <body>
+        <header class="navbar">
+            <h2>NoteWise<span>AI</span></h2>
+            <p>Your personal study assistant</p>
+        </header>
+        <main class="container">
+            <section class="hero">
+                <h1>Your notes. Smart revision.</h1>
+                <p>Turn your class notes into Simple, Effective flashcards.</p>
+            </section>
+            <section class="upload-box">
+                <div class="upload-icon">📚</div>
+                <h2>Upload your notes</h2>
+                <p>Select photos of your handwritten or printed notes.</p>
+                <label for="noteInput" class="upload-button">
+                    Choose Images
+                </label>
+                <input type="file"
+                id="noteInput"
+                accept="image/png,image/jpeg,image/webp"
+                multiple
+                >
+                <p class="file-info">PNG, JPG or WEBP . Multiple images supported </p>
+
+            </section>
+            <section class="preview-section">
+                <h2>Selected notes</h2>
+                <div id="previewContainer" class="preview-container"></div>
+
+            </section>
+
+        </main>
+        <script src="script.js"></script>
+    </body>
+</html>
