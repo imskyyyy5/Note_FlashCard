@@ -1,44 +1,105 @@
+
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width",initial-scale=1.0">
-        <title>NoteWise AI - Smart Revision</title>
-        <link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteWise AI - Smart Revision</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    </head>
-    <body>
-        <header class="navbar">
-            <h2>NoteWise<span>AI</span></h2>
-            <p>Your personal study assistant</p>
-        </header>
-        <main class="container">
-            <section class="hero">
-                <h1>Your notes. Smart revision.</h1>
-                <p>Turn your class notes into Simple, Effective flashcards.</p>
-            </section>
-            <section class="upload-box">
-                <div class="upload-icon">📚</div>
-                <h2>Upload your notes</h2>
-                <p>Select photos of your handwritten or printed notes.</p>
-                <label for="noteInput" class="upload-button">
-                    Choose Images
-                </label>
-                <input type="file"
+    <header class="navbar">
+        <h2>NoteWise<span>AI</span></h2>
+        <p>Your personal study assistant</p>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <h1>Your notes. Smart revision.</h1>
+            <p>Turn your class notes into simple, effective flashcards.</p>
+        </section>
+
+        <!-- Upload notes -->
+        <section class="upload-box">
+            <div class="upload-icon">📚</div>
+
+            <h2>Upload your notes</h2>
+            <p>Select photos of your handwritten or printed notes.</p>
+
+            <label for="noteInput" class="upload-button">
+                Choose Images
+            </label>
+
+            <input
+                type="file"
                 id="noteInput"
                 accept="image/png,image/jpeg,image/webp"
                 multiple
-                >
-                <p class="file-info">PNG, JPG or WEBP . Multiple images supported </p>
+            >
 
-            </section>
-            <section class="preview-section">
-                <h2>Selected notes</h2>
-                <div id="previewContainer" class="preview-container"></div>
+            <p class="file-info">
+                PNG, JPG or WEBP. Multiple images supported.
+            </p>
+        </section>
 
-            </section>
+        <!-- Image previews -->
+        <section class="preview-section">
+            <h2>Selected notes</h2>
+            <div id="previewContainer" class="preview-container"></div>
+        </section>
 
-        </main>
-        <script src="script.js"></script>
-    </body>
+        <!-- Extracted text -->
+        <section class="text-result">
+            <h2>Extracted Text</h2>
+
+            <textarea
+                id="extractedText"
+                placeholder="Your extracted notes will appear here..."
+                rows="10"
+            ></textarea>
+        </section>
+
+        <button
+            type="button"
+            id="readNotesButton"
+            class="read-button"
+            disabled
+        >
+            Read Notes
+        </button>
+
+        <p id="ocrStatus" aria-live="polite"></p>
+
+        <!-- Flashcard generation -->
+        <section class="generate-section">
+            <h2>Smart Flashcards</h2>
+            <p>Turn your notes into focused revision questions.</p>
+
+            <label for="cardCount">Number of flashcards</label>
+
+            <select id="cardCount">
+                <option value="5">5 cards</option>
+                <option value="8" selected>8 cards</option>
+                <option value="10">10 cards</option>
+                <option value="15">15 cards</option>
+            </select>
+
+            <button type="button" id="generateButton">
+                Generate Flashcards
+            </button>
+
+            <p id="generateStatus" aria-live="polite"></p>
+
+            <div id="flashcardsContainer"></div>
+        </section>
+
+    </main>
+
+    <!-- OCR library must load before script.js -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
 </html>
